@@ -1,0 +1,93 @@
+Real world examples with their attributes and methods:
+
+1. Laptop
+
+ --> Attributes:
+     
+      1. Brand
+      2. Color
+      3. Generation
+      4. Processor
+      5. Memory
+
+ --> Methods:
+
+      1. startLaptop()
+      2. shut_down()
+      3. install_app()
+      4. take_screenshot()
+      5. play_games()
+  
+
+2. Book
+
+ --> Attributes:
+ 
+      1. Title
+      2. Price
+      3. Genre
+      4. Pages
+      5. Author
+
+ --> Methods:
+
+      1. open()
+      2. move_next()
+      3. move_previous()
+      4. reading_mode()
+      5. close()
+
+3. Teacher
+
+ --> Attributes:
+ 
+      1. Name
+      2. Age
+      3. Subject
+      4. Grade
+      5. Address
+
+ --> Methods:
+
+      1. Teach()
+      2. assign_tasks()
+      3. grade_assignments()
+      4. make_paper()
+      5. check_paper()
+
+
+4. Restaurant
+
+ --> Attributes:
+ 
+      1. Name
+      2. Address
+      3. Specialty
+      4. Menu
+      5. Interior
+
+ --> Methods:
+
+      1. opening()
+      2. place_order()
+      3. delivery()
+      4. entertainment()
+      5. closing()
+
+5. Airplane
+
+ --> Attributes:
+ 
+      1. Company
+      2. Color
+      3. airplane number
+      4. Luxury
+      5. Pilots
+
+ --> Methods:
+
+      1. take_off()
+      2. update_location()
+      3. serve_meal()
+      4. emergency()
+      5. landing()
