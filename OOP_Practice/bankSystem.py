@@ -1,17 +1,20 @@
 from abc import ABC, abstractmethod
-class bank:
+
+class bank:               # Encapsulation
     def __init__(self, owner, account_id, opening_balance):
         self.owner = owner
         self.account_id = account_id
         self.opening_balance = opening_balance
 
-    @abstractmethod
+    @abstractmethod       # abstraction
     def withdraw(self):
         pass
+
     @abstractmethod
     def deposit(self):
         pass
-class account(bank):
+
+class account(bank):     # Inheritance
 
     def __init__(self, owner, account_id, opening_balance):
         super().__init__(owner, account_id, opening_balance)
@@ -29,4 +32,4 @@ class account(bank):
         if self.opening_balance <= 0:
             self.opening_balance = amount
 
-account_holder = account("Sad", "S-432", 0)
+account_holder = account("Sad", "S-432", 500)
