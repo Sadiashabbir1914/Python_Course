@@ -9,7 +9,7 @@ class Account(ABC):           # Abstract Base Class
         self.account_no = account_no
         self.balance = balance
 
-    def deposit(self, amount) -> int:           # for depositing money
+    def deposit(self, amount):           # for depositing money
         self.balance += amount
         return f"Your current balance is Rs. {self.balance}."
 
@@ -135,8 +135,15 @@ class Bank:
 
         n = int(input("Enter your choice: "))
 
+
         if n == 1:
-            bank.add(acc2)
+            account = SavingAccount(input("Enter owner's name: "), input("Enter account no: "),
+                    int(input("Enter account balance: ")), int(input("Enter interest rate: ")))
+            bank.add(account)
+            bank.load_from_csv()
+            bank.save_to_csv()
+            
+            print("Account added!")
         elif n == 2:
             bank.show()
         elif n == 3:
