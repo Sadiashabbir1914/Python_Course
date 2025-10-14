@@ -1,4 +1,4 @@
 Account_type,owner,account_no,balance,interest_rate,loan_limit,fees
-saving,Sadia,S-432,1500
-current,Shabir,F-322,2000,500,10
-saving,Adia,D-411,3000
+saving,Sadia,S-432,1500,
+current,Shabir,F-322,2000,,
+current,Adia,D-454,4500,,

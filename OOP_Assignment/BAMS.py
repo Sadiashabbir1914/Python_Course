@@ -28,7 +28,7 @@ class SavingAccount(Account):
         self.interest_rate = interest_rate
 
     def withdraw(self, amount):
-        if self.balance <= amount:
+        if amount > self.balance:
             return(f"You entered insufficient balance!")
         self.balance -= amount
     
@@ -73,7 +73,7 @@ class Bank:
         sender.withdraw(amount)
         receiver.deposit(amount)
 
-    def load_from_csv(self, file = "accounts_updated.csv"):
+    def load_from_csv(self, file = "accounts.csv"):
 
         with open(file, "r") as f:
             reader = csv.DictReader(f)
@@ -94,7 +94,7 @@ class Bank:
                 else:
                     raise ValueError ("Invalid account!")
             
-            self.add(acc)
+                self.add(acc)
 
 
     def save_to_csv(self, file = "accounts_updated.csv"):
@@ -107,7 +107,7 @@ class Bank:
 
             for acc in self.accounts.values():
                 if isinstance(acc, SavingAccount):
-                    writer.writerow(["saving", acc.owner, acc.account_no, acc.balance])
+                    writer.writerow(["saving", acc.owner, acc.account_no, acc.balance, acc.interest_rate])
                 elif isinstance(acc, CurrentAccount):
                     writer.writerow(["current", acc.owner, acc.account_no, acc.balance, acc.loan_limit, acc.fees])
                 else:
@@ -128,28 +128,34 @@ class Bank:
 
     def options(self):
 
-        print("Enter 1 to add an account. ")
-        print("Enter 2 to Load account no. ")
-        print("Enter 3 to show all accounts. ")
-        print("Enter 4 to exit. ")
+        print("Enter 1 to add an account. \nEnter 2 to Load account no. "
+        "\nEnter 3 to show all accounts. \nEnter 4 to exit. ")
 
         n = int(input("Enter your choice: "))
 
-
         if n == 1:
-            account = SavingAccount(input("Enter owner's name: "), input("Enter account no: "),
+            print("Enter 1 to add saving account \nEnter 2 for current account")
+            acc_type = int(input("Enter your choice: "))
+            
+            if acc_type == 1:
+                account = SavingAccount(input("Enter owner's name: "), input("Enter account no: "),
                     int(input("Enter account balance: ")), int(input("Enter interest rate: ")))
+            elif acc_type == 2:
+                account = CurrentAccount(input("Enter owner's name: "), input("Enter account no: "),
+                    int(input("Enter account balance: ")), int(input("Enter Loan Limit: ")),
+                    int(input("Enter fee: ")))
             bank.add(account)
-            bank.load_from_csv()
             bank.save_to_csv()
+            bank.load_from_csv()
             
             print("Account added!")
+
         elif n == 2:
             bank.show()
         elif n == 3:
             bank.show_acc()
         elif n == 4:
-            exit
+            exit()
         else:
             print("Invalid Choice!")
 
